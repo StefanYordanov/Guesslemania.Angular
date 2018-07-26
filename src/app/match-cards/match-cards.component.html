@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col l4 m6" *ngFor='let matchCard of matchCards'>
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{matchCard.imageUrls[0]}}">
+                    <a class="btn-floating btn-large halfway-fab waves-effect waves-light {{getButtonClassesByMatchCardState(matchCard.state)}}">
+                        <i class="material-icons">{{getButtonIconByMatchCardState(matchCard.state)}}</i>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">{{matchCard.name}}</span>
+                    <p>Deadline: {{ matchCard.deadLine | dateToString}}
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="#">Type your predictions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
