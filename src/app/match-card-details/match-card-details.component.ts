@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IMatchCardDetails, IMatch, IMatchSide, } from './match-card-details';
+import { IMatchCardDetails, IMatch, IMatchSide, ICommentAnswer } from './match-card-details';
 
 @Component({
     selector: 'app-match-card-details',
@@ -36,7 +36,11 @@ export class MatchCardDetailsComponent implements OnInit {
                             ],
                             isPicked: false
                         }
-                    ]
+                    ],
+                    commentAnswer: {
+                        isPicked: false,
+                        comment: ""
+                    }
                 },
 
                 {
@@ -101,7 +105,11 @@ export class MatchCardDetailsComponent implements OnInit {
                             ],
                             isPicked: false
                         }
-                    ]
+                    ],
+                    commentAnswer: {
+                        isPicked: false,
+                        comment: ""
+                    }
                 }
             ]
         };
@@ -110,8 +118,16 @@ export class MatchCardDetailsComponent implements OnInit {
         for (let side of match.matchSides) {
             side.isPicked = false;
         }
-
+        match.commentAnswer.isPicked = false;
         side.isPicked = true;
+    }
+
+    selectAnswerOption(match: IMatch){
+        for (let side of match.matchSides) {
+            side.isPicked = false;
+        }
+
+        match.commentAnswer.isPicked = true;
     }
 
     toggleShowImageCards(){

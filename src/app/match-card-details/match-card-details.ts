@@ -14,13 +14,19 @@ export interface IMatchEntry{
     imageUrl: string;
 }
 
+export interface ICommentAnswer{
+    comment: string;
+    isPicked: boolean
+}
+
 export interface IMatch{
     isFilled: boolean;
     matchDescription: string;
     matchReward: string;
     isSidedMatch: boolean;
     matchSides?: IMatchSide[];
-    options?: IMatchEntry[]
+    options?: IMatchEntry[];
+    commentAnswer: ICommentAnswer;
 }
 
 // export interface IRegularMatch extends IMatch{

@@ -1,12 +1,13 @@
 <div class="container">
     <h1>{{matchCard.cardName}}</h1>
     <a class="waves-effect waves-light btn" (click)="toggleShowImageCards()">Show/Hide images</a>
-    <div class="row grey lighten-2 z-depth-5" *ngFor='let match of matchCard.matches'>
+    <div class="row grey lighten-3 z-depth-5" *ngFor='let match of matchCard.matches'>
         <h3>{{match.matchDescription}}</h3>
         <div *ngIf="match.isSidedMatch">
             <div class="" *ngFor='let side of match.matchSides'>
-                <div class=" col s12 m6 xl4 hoverable container {{ side.isPicked ? 'teal lighten-2' : 'grey' }} animate-color-switch" (click)="changeSelectedOption(match, side)">
-                    <h5 class="truncate" >{{side.name}}</h5>
+                <div class=" col s12 m6 xl4 hoverable container {{ side.isPicked ? 'teal lighten-2' : 'grey lighten-1' }} animate-color-switch"
+                    (click)="changeSelectedOption(match, side)">
+                    <h5 class="truncate">{{side.name}}</h5>
                     <div *ngFor='let entry of side.entries' class="col s12 m12 l11 xl12">
                         <div class="card" *ngIf="showImageCards">
                             <div class="card-image">
@@ -17,6 +18,15 @@
                     </div>
                 </div>
             </div>
+            <div class="col s12 container {{ match.commentAnswer.isPicked ? 'teal lighten-2' : 'grey lighten-1' }} animate-color-switch" (click)="selectAnswerOption(match)">
+                <div class="input-field grey lighten-1 ">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <input placeholder="Other answer..." id="icon_prefix2" type="text" class="validate" />
+                </div>
+            </div>
         </div>
+
+
+
     </div>
 </div>
