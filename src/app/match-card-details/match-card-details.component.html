@@ -8,14 +8,17 @@
                 <div class=" col s12 m6 xl4 hoverable container {{ side.isPicked ? 'teal lighten-2' : 'grey lighten-1' }} animate-color-switch"
                     (click)="changeSelectedOption(match, side)">
                     <h5 class="truncate">{{side.name}}</h5>
-                    <div *ngFor='let entry of side.entries' class="col s12 m12 l11 xl12">
+                    <span *ngFor='let entry of side.entries' class="col s12 m12 l11 xl12">
                         <div class="card" *ngIf="showImageCards">
                             <div class="card-image">
                                 <img src="{{entry.imageUrl}}" item-width="300px" height="300px">
                                 <span class="card-title">{{entry.entryName}}</span>
                             </div>
                         </div>
-                    </div>
+                        <span *ngIf="!showImageCards">
+                            <span class="new badge" [attr.data-badge-caption]="entry.entryName"></span>
+                        </span>
+                    </span>
                 </div>
             </div>
             <div class="col s12 container {{ match.commentAnswer.isPicked ? 'teal lighten-2' : 'grey lighten-1' }} animate-color-switch" (click)="selectAnswerOption(match)">
